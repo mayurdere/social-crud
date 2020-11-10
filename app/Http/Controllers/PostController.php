@@ -35,7 +35,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {   
-        auth()->user()->post()->create($request->all());
+        // auth()->user()->post()->create($request->all());
         Post::create($request->all());
         return response('Created');
     }
@@ -71,7 +71,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return response('Updated');
     }
 
     /**
